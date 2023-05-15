@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<title>How To Creat ChatBot | Noraldim</title>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.111.3">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://time.github.io/css/index.css">
+<link rel="canonical" href="https://time.github.io/post/one/">
+<link rel="alternate" type="application/rss+xml" href="" title="Noraldim">
+
+<header>
+  
+  
+    
+      <a href="https://time.github.io/" class="title">Noraldim</a>
+      
+  
+
+<ul class="social-media-icons">
+  
+    
+  
+  <li><a href="https://github.com/Noraldim"><img src="https://img.icons8.com/dotty/80/000000/github.png" alt="github"></a></li>
+  <li><a href="#"><img src="https://img.icons8.com/ios-filled/50/000000/youtube-play.png" alt="youtube"></a></li>
+  <li><a href="https://twitter.com/noraldim_"><img src="https://img.icons8.com/glyph-neue/64/twitter.png" alt="twitter"></a></li>
+  
+  
+</ul>
+
+  
+
+
+
+  <style>
+    .social-media-icons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+}
+
+.social-media-icons li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.social-media-icons li:last-child {
+  margin-right: 0;
+}
+
+.social-media-icons img {
+  
+  width: 35px;
+  height: 35px;
+}
+
+
+  </style>
+
+  
+  
+</header>
+
+<article>
+  <header>
+    <h1>How To Creat ChatBot</h1>
+    <time datetime="2023-05-15T14:21:32&#43;03:00">May 15, 2023</time>
+  </header>
+  <p>**data cleaning **
+You can clean with basic cleaning commands in python using &lsquo;open&rsquo; to open specific files and associate it with a variable and use &lsquo;replace &rsquo; to replace the element. In our case we just need to clean. Finally, we can use append to do the work.</p>
+<pre tabindex="0"><code>import re
+
+
+rmnum = re.compile(r&#39;/d+&#39;)
+one = []
+
+with open(&#34;C:\\THINGS\\githup project\\meshochat.txt&#34;, &#39;r&#39;, encoding= &#34;utf-8&#34;) as mesho:
+    for line in mesho:
+        rm = line.replace(&#39;/&#39;,&#39;&#39;).replace(&#39;:&#39;,&#39;&#39;).replace(&#39;AM&#39;,&#39;&#39;).replace(&#39;PM&#39;,&#39;&#39;).replace(&#39;-&#39;,&#39;&#39;).replace(&#39;,&#39;,&#39;&#39;).replace(&#39; &#39;,&#39;&#39;).replace(&#39;ميشووو&#39;,&#39;ques &#39;).replace(&#39;Nõr&#39;,&#39;ans &#39;)
+        one.append(rm)
+</code></pre><p>to delete the changing number in the date u can use re.compile(r&rsquo;\d+&rsquo;) to delete any number from chat
+after cleaning the chat you will start to sort data in the table and here you need to learn RELATIONAL DATABASE MANAGEMENT SYSTEM in order to handle the data and store them.
+in my case, I use PostgreSQL to handle chat log data and there are some important things you must get hands-on :
+1- IF you handle your data with PostgreSQL you have to realize that by default it only accepts ASCII characters:
+2- you need to use the &ldquo;UTF-8&rdquo; encoding method to avoid any error especially if you use a character out site ASCII list like Arabic characters</p>
+<p>.
+.</p>
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9okivnm3p2fgxp16w5tf.jpeg" alt="Image description"></p>
+<p><code>NOTE USE : _CREATE DATABASE bot WITH ENCODING'UTF8_' </code></p>
+<p>3- need to know how to handle data using psycopg2 or any other library to store and customize data in an effective way</p>
+<pre tabindex="0"><code>import psycopg2
+
+conect = psycopg2.connect(
+
+    host = &#34;localhost&#34;,
+    database = &#34;time&#34;,
+    user = &#34;postgres&#34;,
+    password = &#34;timezone&#34;
+)
+cur = conect.cursor()
+cur.execute(&#34;INSERT INTO static(name, last_name, gender, email) VALUES(&#39;ONE&#39;,&#39;SALIH&#39;,&#39;FEMEAL&#39;,&#39;Eada@gmail.com&#39;);&#34;)
+cur.execute(&#34;SELECT * FROM static;&#34;)
+rows = cur.fetchall()
+# use for loop to print ever line you spasify 
+for line in rows:
+    print(f&#34;{line[0]} {line[1]} {line[2]} {line[3]} {line[4]}&#34;)
+conect.commit()
+cur.close()
+conect.close()
+</code></pre><p>After storing the data in CSV or TSV format you can use Git to upload your data to GitHub and there are some commands that will help you do that: &ldquo;git init &quot; and &ldquo;git add .&rdquo;
+These two commands are important the first is to  create the git hidden file to initialize the project and the second one is to add an initialized folders to git file and finally you can use git commit to commit your initialization and git push to upload to GitHub in this way avoid any uploading error happening when you use drag and drop method.
+After uploading the tsv file opens it in row form and copies the link this link will be the database for the chatbox bot.</p>
+<p>From now on you can use any language to code the bot. In my case I use python because again I have many ways to handle data and here using pandas this tool gives you a mighty hand on accessing your data and distributing them in a way that serves your needs .<br>
+The actual bot is divided into four parts. The first part just defines the database and bot api .</p>
+<pre tabindex="0"><code>from typing import Counter
+
+import requests 
+import pandas as pd
+resp = [ &#34;Sorry &#34;,&#34;have a nice day&#34;]
+dburl = &#34;DATABASElink.tsv&#34;
+url = &#34;botapi/&#34;
+counter = 0
+</code></pre><p>the second part is reading the user message offset is the message id or &ldquo;update_id&rdquo; each message has an unique id and here you need to extract some information from json format like message and user id that change automatically .</p>
+<pre tabindex="0"><code>def read(offset):
+
+    para = {
+            &#34;offset&#34; : offset          
+        }
+
+    req = requests.get(url + &#34;getUpdates&#34;, data = para)
+    data = req.json()
+    print(data)
+
+    for result in data[&#34;result&#34;]:
+        send(result)
+
+    if data[&#34;result&#34;]:
+        return data[&#34;result&#34;][-1][&#34;update_id&#34;] + 1
+</code></pre><p>The third part is to process input given by the user if there is any capital letter it will make it small and so on and if  there is any message that not exist in the database it will give auto response from a list created privily in this case &ldquo;resp&rdquo;.</p>
+<pre tabindex="0"><code>def out(message):
+  global counter
+  answer = df.loc[df[&#39;qus&#39;].str.lower()== message.lower()]
+
+
+  if not answer.empty:
+    answer = answer.iloc[0][&#39;ans&#39;]
+    return answer
+  else:
+    counter = (counter + 1) % len(resp)
+    return resp[counter]
+    
+              
+</code></pre><p>the final part is sending message part here there is just a simple parameter take sends a message to the id that stores priestly from a list in the database.</p>
+<pre tabindex="0"><code>
+def send(result):
+
+  text = result[&#34;message&#34;][&#34;text&#34;]
+  answer = out(text)
+
+
+  parameter = {
+      
+      &#34;chat_id&#34; : result[&#34;message&#34;][&#34;chat&#34;][&#34;id&#34;],        
+      &#34;text&#34; : answer  ,
+      &#34;reply_to_message_id&#34; : None     
+  }
+
+
+  req = requests.get(url + &#34;sendMessage&#34;, data = parameter)
+  print(req.text)
+
+offset = 0
+</code></pre>
+</article>
+
+
+
+
+
+</style>
+
+</html>

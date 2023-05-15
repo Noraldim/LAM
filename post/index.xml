@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Noraldim</title>
+    <link>https://time.github.io/post/</link>
+    <description>Recent content in Posts on Noraldim</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 May 2023 16:39:58 +0300</lastBuildDate><atom:link href="https://time.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vim</title>
+      <link>https://time.github.io/post/vim/</link>
+      <pubDate>Mon, 15 May 2023 16:39:58 +0300</pubDate>
+      
+      <guid>https://time.github.io/post/vim/</guid>
+      <description>One of the key features of Vim is its modal editing system. It has different modes that allow users to perform various tasks efficiently. The two primary modes are the command mode and the insert mode. In command mode, users can navigate, search, and execute commands, while insert mode is used for inserting and editing text. This modal approach allows for quick and precise editing, making Vim a highly efficient tool.</description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://time.github.io/post/linux/</link>
+      <pubDate>Mon, 15 May 2023 15:27:44 +0300</pubDate>
+      
+      <guid>https://time.github.io/post/linux/</guid>
+      <description>Linux is a powerful and widely used open-source operating system that has revolutionized the world of computing. It has gained popularity for its stability, security, and flexibility, and is utilized in a wide range of devices, from servers and supercomputers to smartphones and embedded systems. In this introduction, we will explore the key features and advantages of Linux, as well as its history and impact on the computing landscape.</description>
+    </item>
+    
+    <item>
+      <title>How To Creat ChatBot</title>
+      <link>https://time.github.io/post/one/</link>
+      <pubDate>Mon, 15 May 2023 14:21:32 +0300</pubDate>
+      
+      <guid>https://time.github.io/post/one/</guid>
+      <description>**data cleaning ** You can clean with basic cleaning commands in python using &amp;lsquo;open&amp;rsquo; to open specific files and associate it with a variable and use &amp;lsquo;replace &amp;rsquo; to replace the element. In our case we just need to clean. Finally, we can use append to do the work.
+import re rmnum = re.compile(r&amp;#39;/d+&amp;#39;) one = [] with open(&amp;#34;C:\\THINGS\\githup project\\meshochat.txt&amp;#34;, &amp;#39;r&amp;#39;, encoding= &amp;#34;utf-8&amp;#34;) as mesho: for line in mesho: rm = line.</description>
+    </item>
+    
+  </channel>
+</rss>
